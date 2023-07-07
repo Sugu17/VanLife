@@ -6,6 +6,7 @@ import HomePage from "./Pages/home/HomePage";
 import VansPage from "./Pages/vans/VansPage";
 import HostDashboard from "./Pages/host/home/HostDashboard";
 import HostLayout from "./Components/host/HostLayout";
+import HostVansPage from "./Pages/host/vans/HostVansPage";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/vans/:id" element={<VanDetailPage />}></Route>
         <Route element={<HostLayout />}>
           <Route path="/host" element={<HostDashboard />}></Route>
-          <Route path="/host/income"></Route>
+          <Route path="/host/vans" element={<HostVansPage />}></Route>
           <Route path="/host/income"></Route>
         </Route>
       </Route>
