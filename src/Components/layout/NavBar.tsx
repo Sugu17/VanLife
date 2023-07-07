@@ -14,7 +14,7 @@ function NavBar() {
   return (
     <div className="flex justify-between items-center px-6 py-9 bg-[#FFF7ED]">
       <Logo />
-      <NavLinks info={navItems} />
+      <NavLinks info={navItems} textSize="sm" />
     </div>
   );
 }

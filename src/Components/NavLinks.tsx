@@ -7,6 +7,7 @@ export interface NavInfo {
 
 interface Props {
   info: NavInfo[];
+  textSize: "lg" | "sm";
 }
 
 function NavItem(props: NavInfo) {
@@ -27,9 +28,22 @@ function NavItem(props: NavInfo) {
   );
 }
 
+type TextSize = {
+  [key in Props["textSize"]]: string;
+};
+
 function NavLinks(props: Props) {
+  const textSizes: TextSize = {
+    lg: "text-lg",
+    sm: "text-base",
+  };
   return (
-    <div className="flex gap-5 text-[#4D4D4D] font-semibold capitalize">
+    <div
+      className={
+        "flex gap-5 text-[#4D4D4D] font-semibold capitalize " +
+        textSizes[props.textSize]
+      }
+    >
       {props.info.map((info, index) => (
         <NavItem key={index} {...info} />
       ))}
