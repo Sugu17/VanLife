@@ -3,14 +3,14 @@ import NavLinks, { NavInfo } from "../NavLinks";
 
 function HostLayout() {
   const navLinks: NavInfo[] = [
-    { name: "DashBoard", to: "" },
-    { name: "Income", to: "" },
-    { name: "Vans", to: "" },
-    { name: "Reviews", to: "" },
+    { name: "DashBoard", to: "/host" },
+    { name: "Income", to: "/host/income" },
+    { name: "Vans", to: "/host/vans" },
+    { name: "Reviews", to: "/host/reviews" },
   ];
   return (
-    <div className="flex flex-col gap-11 py-4 pb-14">
-      <div className="px-6">
+    <div className="flex flex-col gap-11 py-4 px-6 pb-14">
+      <div>
         <NavLinks info={navLinks} textSize="lg" />
       </div>
       <Outlet />
