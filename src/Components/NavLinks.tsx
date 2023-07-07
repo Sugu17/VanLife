@@ -40,7 +40,7 @@ function NavLinks(props: Props) {
   return (
     <div
       className={
-        "flex gap-5 text-[#4D4D4D] font-semibold capitalize " +
+        "flex flex-row gap-5 text-[#4D4D4D] font-semibold capitalize " +
         textSizes[props.textSize]
       }
     >
