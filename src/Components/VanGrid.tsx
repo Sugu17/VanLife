@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 import useVanStore from "../hooks/useVanStore";
+import useVans from "../hooks/useVans";
 import VanCard from "./VanCard";
 
 function VanGrid() {
-  const vanStore = useVanStore();
-  const vans = vanStore((state) => state.vans);
+  const { data, isLoading } = useVans();
+  const setVans = useVanStore((state) => state.setVans);
+  const vans = useVanStore((state) => state.vans);
+  useEffect(() => setVans(data), []);
+
   const vanCards = vans?.map((data) => (
     <VanCard
       key={data.id}

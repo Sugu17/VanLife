@@ -3,8 +3,12 @@ import Grid from "../Components/AppGrid";
 import NavBar from "../Components/NavBar";
 import VanGrid from "../Components/VanGrid";
 import Footer from "../Components/Footer";
+import useVans from "../hooks/useVans";
+import useVanStore from "../hooks/useVanStore";
 
 function VansPage() {
+  const { data } = useVans();
+  const setVans = useVanStore((state) => state.setVans);
   return (
     <Grid>
       <NavBar />
@@ -27,6 +31,7 @@ function VansPage() {
           <button
             type="button"
             className="text-neutral-600 underline capitalize whitespace-nowrap"
+            onClick={() => setVans(data)}
           >
             <span className="inline min-[400px]:hidden">Clear</span>
             <span className="hidden min-[400px]:inline">Clear Filters</span>

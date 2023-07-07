@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { overrideTailwindClasses } from "tailwind-override";
+import useVanStore from "../hooks/useVanStore";
+import useVans from "../hooks/useVans";
 
 export type Variants = "Default" | "Simple" | "Luxury" | "Rugged";
 
@@ -7,7 +9,6 @@ interface Props {
   children: ReactNode;
   variant?: Variants;
   unstyled?: boolean;
-  onClick: () => void;
 }
 
 type VariantMap = {
@@ -51,10 +52,18 @@ const baseStyleMap: VariantMap = {
 };
 
 function CategoryButton({ children, variant = "Default", unstyled }: Props) {
+  const setVans = useVanStore((state) => state.setVans);
+
+  const { data } = useVans({ type: variant.toLowerCase() });
+
+  function handleClick() {
+    setVans(data);
+  }
   return (
     <button
       type="button"
       className={unstyled ? baseStyleMap[variant] : variantMap[variant]}
+      onClick={() => handleClick()}
     >
       {children}
     </button>

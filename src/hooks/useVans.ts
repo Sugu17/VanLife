@@ -2,12 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import { VanData, data } from "../data/data";
 
 interface RouteParams {
-  id: string | undefined;
+  id?: string;
+  type: string;
 }
 
 export default function useVans(routeParams?: RouteParams) {
   const vansQuery = useQuery({
-    queryFn: (): Promise<VanData[]> => new Promise((resolve) => resolve(data)),
+    queryFn: (): Promise<VanData[]> =>
+      routeParams
+        ? new Promise((resolve) =>
+            resolve(data.filter((van) => van.type === routeParams.type))
+          )
+        : new Promise((resolve) => resolve(data)),
     queryKey: routeParams ? ["vans", routeParams] : ["vans"],
     staleTime: 60 * 60 * 1000,
   });
