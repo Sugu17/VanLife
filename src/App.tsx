@@ -3,7 +3,7 @@ import AboutPage from "./Pages/about/AboutPage";
 import HomePage from "./Pages/home/HomePage";
 import VansPage from "./Pages/vans/VansPage";
 import VanDetailPage from "./Pages/details/VanDetailPage";
-import Layout from "./Components/Layout";
+import Layout from "./Components/layout/Layout";
 
 function App() {
   return (

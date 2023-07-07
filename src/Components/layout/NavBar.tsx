@@ -1,5 +1,10 @@
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo";
+
+function Logo() {
+  return (
+    <span className="text-[26px] font-black tracking-tight">#VANLIFE</span>
+  );
+}
 
 function NavBar() {
   const linkStyles =
