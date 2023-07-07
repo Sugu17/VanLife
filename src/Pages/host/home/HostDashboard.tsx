@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import NavLinks, { NavInfo } from "../../../Components/NavLinks";
 import useVanStore from "../../../hooks/useVanStore";
 import useVans from "../../../hooks/useVans";
 import Summary from "./Summary";
@@ -11,12 +10,7 @@ function HostDashboard() {
   useEffect(() => setVans(data), [data]);
 
   const vans = useVanStore((state) => state.vans);
-  const navLinks: NavInfo[] = [
-    { name: "DashBoard", to: "" },
-    { name: "Income", to: "" },
-    { name: "Vans", to: "" },
-    { name: "Reviews", to: "" },
-  ];
+
   const listedVans = vans?.map((van) => (
     <VanMedia
       name={van.name}
@@ -26,10 +20,7 @@ function HostDashboard() {
     />
   ));
   return (
-    <div className="flex flex-col gap-11 py-4 pb-14">
-      <div className="px-6">
-        <NavLinks info={navLinks} textSize="lg" />
-      </div>
+    <>
       <Summary />
       <div className="flex flex-col gap-7 px-6">
         <div className="flex flex-row justify-between">
@@ -40,7 +31,7 @@ function HostDashboard() {
         </div>
         <div className="flex flex-col gap-4">{listedVans}</div>
       </div>
-    </div>
+    </>
   );
 }
 export default HostDashboard;

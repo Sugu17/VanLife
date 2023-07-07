@@ -5,6 +5,7 @@ import VanDetailPage from "./Pages/details/VanDetailPage";
 import HomePage from "./Pages/home/HomePage";
 import VansPage from "./Pages/vans/VansPage";
 import HostDashboard from "./Pages/host/home/HostDashboard";
+import HostLayout from "./Components/host/HostLayout";
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/vans" element={<VansPage />}></Route>
         <Route path="/vans/:id" element={<VanDetailPage />}></Route>
-        <Route path="/host" element={<HostDashboard />}></Route>
+        <Route element={<HostLayout />}>
+          <Route path="/host" element={<HostDashboard />}></Route>
+          <Route path="/host/income"></Route>
+          <Route path="/host/income"></Route>
+        </Route>
       </Route>
     </Routes>
   );
