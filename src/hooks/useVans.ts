@@ -3,7 +3,7 @@ import { VanData, data } from "../data/data";
 
 interface RouteParams {
   id?: string;
-  type: string;
+  type?: string;
 }
 
 export default function useVans(routeParams?: RouteParams) {

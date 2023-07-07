@@ -1,13 +1,9 @@
 import Callout from "../Components/Callout";
-import Footer from "../Components/Footer";
-import Grid from "../Components/AppGrid";
-import NavBar from "../Components/NavBar";
 import aboutImage from "../assets/images/image 54.png";
 
 function AboutPage() {
   return (
-    <Grid>
-      <NavBar />
+    <>
       <div
         style={{
           background: `no-repeat center/cover url("${aboutImage}") lightgray  `,
@@ -31,8 +27,7 @@ function AboutPage() {
           <Callout />
         </div>
       </div>
-      <Footer />
-    </Grid>
+    </>
   );
 }
 export default AboutPage;
