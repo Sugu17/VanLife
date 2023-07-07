@@ -1,12 +1,14 @@
 import useVanStore from "../../../hooks/useVanStore";
+import useVans from "../../../hooks/useVans";
 import Summary from "./Summary";
 import VanMedia from "./VanMedia";
 
 function HostDashboard() {
+  useVans();
   const vans = useVanStore((state) => state.vans);
-
-  const listedVans = vans?.map((van) => (
+  const listedVans = vans?.map((van, index) => (
     <VanMedia
+      key={index}
       name={van.name}
       imgURL={van.imageUrl}
       price={van.price}

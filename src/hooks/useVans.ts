@@ -20,7 +20,7 @@ export default function useVans(routeParams?: RouteParams) {
     staleTime: 60 * 60 * 1000,
   });
   const setVans = useVanStore((state) => state.setVans);
-  useEffect(() => setVans(vansQuery.data), []);
+  useEffect(() => setVans(vansQuery.data), [vansQuery]);
   return vansQuery;
 }
 
