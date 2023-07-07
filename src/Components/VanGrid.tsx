@@ -7,7 +7,7 @@ function VanGrid() {
   const { data, isLoading } = useVans();
   const setVans = useVanStore((state) => state.setVans);
   const vans = useVanStore((state) => state.vans);
-  useEffect(() => setVans(data), []);
+  useEffect(() => setVans(data), [data]);
 
   const vanCards = vans?.map((data) => (
     <VanCard
