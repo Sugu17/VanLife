@@ -1,14 +1,8 @@
-import { useEffect } from "react";
 import useVanStore from "../../../hooks/useVanStore";
-import useVans from "../../../hooks/useVans";
 import Summary from "./Summary";
 import VanMedia from "./VanMedia";
 
 function HostDashboard() {
-  const { data, isLoading } = useVans();
-  const setVans = useVanStore((state) => state.setVans);
-  useEffect(() => setVans(data), [data]);
-
   const vans = useVanStore((state) => state.vans);
 
   const listedVans = vans?.map((van) => (

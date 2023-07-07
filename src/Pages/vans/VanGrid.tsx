@@ -1,14 +1,11 @@
-import { useEffect } from "react";
-import useVanStore from "../../hooks/useVanStore";
-import useVans from "../../hooks/useVans";
+import { VanData } from "../../data/data";
 import VanCard from "./VanCard";
 
-function VanGrid() {
-  const { data, isLoading } = useVans();
-  const setVans = useVanStore((state) => state.setVans);
-  const vans = useVanStore((state) => state.vans);
-  useEffect(() => setVans(data), [data]);
+interface Props {
+  vans: VanData[] | undefined;
+}
 
+function VanGrid({ vans }: Props) {
   const vanCards = vans?.map((data) => (
     <VanCard
       key={data.id}
