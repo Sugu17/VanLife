@@ -1,8 +1,8 @@
 import { BsArrowLeft } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
-import VanDetail from "../Components/VanDetail";
-import { VanData } from "../data/data";
-import useVans, { getVanById } from "../hooks/useVans";
+import VanDetail from "./VanDetail";
+import { VanData } from "../../data/data";
+import useVans, { getVanById } from "../../hooks/useVans";
 
 function VanDetailPage() {
   const params = useParams();

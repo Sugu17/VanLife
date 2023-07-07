@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import useVanStore from "../hooks/useVanStore";
-import useVans from "../hooks/useVans";
+import useVanStore from "../../hooks/useVanStore";
+import useVans from "../../hooks/useVans";
 import VanCard from "./VanCard";
 
 function VanGrid() {

@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import AboutPage from "./Pages/AboutPage";
-import HomePage from "./Pages/HomePage";
-import VansPage from "./Pages/VansPage";
-import VanDetailPage from "./Pages/VanDetailPage";
+import AboutPage from "./Pages/about/AboutPage";
+import HomePage from "./Pages/home/HomePage";
+import VansPage from "./Pages/vans/VansPage";
+import VanDetailPage from "./Pages/details/VanDetailPage";
 import Layout from "./Components/Layout";
 
 function App() {

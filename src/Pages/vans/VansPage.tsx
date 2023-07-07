@@ -1,7 +1,7 @@
-import CategoryButton from "../Components/CategoryButton";
-import VanGrid from "../Components/VanGrid";
-import useVanStore from "../hooks/useVanStore";
-import useVans from "../hooks/useVans";
+import CategoryButton from "../../Components/CategoryButton";
+import VanGrid from "./VanGrid";
+import useVanStore from "../../hooks/useVanStore";
+import useVans from "../../hooks/useVans";
 
 function VansPage() {
   const { data } = useVans();
