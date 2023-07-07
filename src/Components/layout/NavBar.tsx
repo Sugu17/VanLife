@@ -8,8 +8,9 @@ function Logo() {
 
 function NavBar() {
   const navItems: NavInfo[] = [
-    { name: "About", to: "/about" },
-    { to: "/vans", name: "Vans" },
+    { to: "host", name: "Host" },
+    { to: "about", name: "About" },
+    { to: "vans", name: "Vans" },
   ];
   return (
     <div className="flex justify-between items-center px-6 py-9 bg-[#FFF7ED]">

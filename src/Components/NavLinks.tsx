@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { data } from "../data/data";
 
 export interface NavInfo {
   to: string;

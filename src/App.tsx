@@ -11,15 +11,15 @@ import HostVansPage from "./Pages/host/vans/HostVansPage";
 function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/about" element={<AboutPage />}></Route>
-        <Route path="/vans" element={<VansPage />}></Route>
-        <Route path="/vans/:id" element={<VanDetailPage />}></Route>
-        <Route element={<HostLayout />}>
-          <Route path="/host" element={<HostDashboard />}></Route>
-          <Route path="/host/vans" element={<HostVansPage />}></Route>
-          <Route path="/host/income"></Route>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="vans" element={<VansPage />} />
+        <Route path="vans/:id" element={<VanDetailPage />} />
+        <Route path="host" element={<HostLayout />}>
+          <Route index element={<HostDashboard />} />
+          <Route path="vans" element={<HostVansPage />} />
+          <Route path="income"></Route>
         </Route>
       </Route>
     </Routes>
