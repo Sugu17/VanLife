@@ -19,6 +19,7 @@ function App() {
         <Route path="host" element={<HostLayout />}>
           <Route index element={<HostDashboard />} />
           <Route path="vans" element={<HostVansPage />} />
+          <Route path="vans/:id" />
           <Route path="income"></Route>
         </Route>
       </Route>
