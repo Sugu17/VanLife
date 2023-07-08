@@ -11,7 +11,7 @@ function HostLayout() {
   return (
     <div className="flex flex-col gap-11 py-4 px-6 pb-14">
       <div>
-        <NavLinks info={navLinks} textSize="lg" />
+        <NavLinks info={navLinks} textSize="lg" end />
       </div>
       <Outlet />
     </div>
