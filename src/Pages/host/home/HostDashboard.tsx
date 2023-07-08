@@ -18,7 +18,7 @@ function HostDashboard() {
   return (
     <>
       <Summary />
-      <div className="flex flex-col gap-7 px-6">
+      <div className="flex flex-col gap-7">
         <div className="flex flex-row justify-between">
           <h2 className="text-2xl text-neutral-950 font-bold">
             Your listed vans
