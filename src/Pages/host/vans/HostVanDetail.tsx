@@ -40,8 +40,8 @@ interface Props {
 function HostVanDetail({ imgURL, name, price, type, desc }: Props) {
   const navLinks: NavInfo[] = [
     { to: "", name: "Details" },
-    { to: "", name: "Pricing" },
-    { to: "", name: "Photos" },
+    { to: "pricing", name: "Pricing" },
+    { to: "photos", name: "Photos" },
   ];
   return (
     <div className="flex flex-col gap-7 p-6 bg-white rounded-md">
@@ -55,7 +55,7 @@ function HostVanDetail({ imgURL, name, price, type, desc }: Props) {
         </div>
         <VanCardDetail name={name} price={price} type={type} />
       </div>
-      <NavLinks info={navLinks} textSize="sm" />
+      <NavLinks info={navLinks} textSize="sm" end />
       <Outlet context={{ name, price, type, imgURL, desc }} />
     </div>
   );

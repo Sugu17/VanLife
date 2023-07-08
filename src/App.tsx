@@ -9,6 +9,8 @@ import HostLayout from "./Components/host/HostLayout";
 import HostVansPage from "./Pages/host/vans/HostVansPage";
 import HostVanDetailPage from "./Pages/host/vans/HostVanDetailPage";
 import HostVanInfo from "./Pages/host/vans/HostVanInfo";
+import Price from "./Components/Price";
+import HostVanImage from "./Pages/host/vans/HostVanImage";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="income"></Route>
           <Route path="vans/:id" element={<HostVanDetailPage />}>
             <Route index element={<HostVanInfo />} />
+            <Route path="pricing" element={<Price />} />
+            <Route path="photos" element={<HostVanImage />} />
           </Route>
         </Route>
       </Route>

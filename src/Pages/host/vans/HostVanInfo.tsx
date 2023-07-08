@@ -18,7 +18,7 @@ function HostVanInfo() {
       </span>
       <span className="text-base text-neutral-950 font-bold">
         Category:&nbsp;
-        <span className="font-medium">{props.type}</span>
+        <span className="font-medium capitalize">{props.type}</span>
       </span>
       <span className="text-base text-neutral-950 font-bold">
         Description:&nbsp;
