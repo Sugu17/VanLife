@@ -7,7 +7,7 @@ interface Props {
   children: ReactNode;
   variant?: Variants;
   unstyled?: boolean;
-  onClick: (filterType: Variants) => void;
+  onClick?: (filterType: Variants) => void;
 }
 
 type VariantMap = {

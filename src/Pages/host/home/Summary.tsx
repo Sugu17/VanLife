@@ -1,4 +1,3 @@
-import { BsStarFill } from "react-icons/bs";
 import ReviewSummary from "./ReviewSummary";
 
 function Summary() {
