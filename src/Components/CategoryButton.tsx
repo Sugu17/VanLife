@@ -60,7 +60,7 @@ function CategoryButton({
     <button
       type="button"
       className={unstyled ? baseStyleMap[variant] : variantMap[variant]}
-      onClick={() => handleClick(variant)}
+      onClick={() => (handleClick ? handleClick(variant) : null)}
     >
       {children}
     </button>
