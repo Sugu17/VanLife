@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { data } from "../data/data";
 
 export interface NavInfo {
   to: string;
   name: string;
+  end?: boolean;
 }
 
 interface Props {
   info: NavInfo[];
   textSize: "lg" | "sm";
+  end?: boolean;
 }
 
 function NavItem(props: NavInfo) {
@@ -18,6 +19,7 @@ function NavItem(props: NavInfo) {
   return (
     <NavLink
       to={props.to}
+      end={props.end ? props.end : undefined}
       className={(data) =>
         data.isActive
           ? linkStyles + activeStyle
@@ -46,7 +48,7 @@ function NavLinks(props: Props) {
       }
     >
       {props.info.map((info, index) => (
-        <NavItem key={index} {...info} />
+        <NavItem key={index} name={info.name} to={info.to} end={props.end} />
       ))}
     </div>
   );
