@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom";
-import CategoryButton, { Variants } from "../../../Components/CategoryButton";
+import CategoryButton, {
+  Variants,
+} from "../../../Components/buttons/CategoryButton";
 import NavLinks, { NavInfo } from "../../../Components/NavLinks";
 
 interface VanCardProps {

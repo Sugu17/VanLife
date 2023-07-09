@@ -1,5 +1,7 @@
 import { useState } from "react";
-import CategoryButton, { Variants } from "../../Components/CategoryButton";
+import CategoryButton, {
+  Variants,
+} from "../../Components/buttons/CategoryButton";
 import useVans, { RouteParams } from "../../hooks/useVans";
 import VanGrid from "./VanGrid";
 
