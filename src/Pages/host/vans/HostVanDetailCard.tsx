@@ -37,7 +37,7 @@ interface Props {
   desc: string;
 }
 
-function HostVanDetail({ imgURL, name, price, type, desc }: Props) {
+function HostVanDetailCard({ imgURL, name, price, type, desc }: Props) {
   const navLinks: NavInfo[] = [
     { to: "", name: "Details" },
     { to: "pricing", name: "Pricing" },
@@ -60,4 +60,4 @@ function HostVanDetail({ imgURL, name, price, type, desc }: Props) {
     </div>
   );
 }
-export default HostVanDetail;
+export default HostVanDetailCard;
