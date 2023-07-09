@@ -13,7 +13,7 @@ function NavBar() {
     { to: "vans", name: "Vans" },
   ];
   return (
-    <div className="flex justify-between items-center px-6 py-9 bg-[#FFF7ED]">
+    <div className="flex justify-between items-center px-6 py-9">
       <Logo />
       <NavLinks info={navItems} textSize="sm" />
     </div>

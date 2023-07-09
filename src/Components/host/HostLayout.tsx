@@ -9,7 +9,7 @@ function HostLayout() {
     { name: "Reviews", to: "reviews" },
   ];
   return (
-    <div className="flex flex-col gap-11 py-4 px-6 pb-14">
+    <div className="flex flex-col gap-11 py-4 px-3 sm:px-6 pb-14">
       <div>
         <NavLinks info={navLinks} textSize="lg" end />
       </div>
