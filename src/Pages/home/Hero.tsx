@@ -8,22 +8,24 @@ function Hero() {
       style={{
         background: `url("${heroImage}")`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center 57%",
-        backgroundSize: "contain",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
       }}
-      className="flex flex-col justify-between gap-10 px-7 py-16 container"
+      className="flex flex-col justify-between py-10 container"
     >
-      <h2 className="text-4xl font-extrabold text-[#FF8C38]">
+      <h2 className="text-4xl font-extrabold text-[#f36703] py-6 px-7 backdrop-blur-md">
         You got the travel plans, we got the travel vans.
       </h2>
-      <p className="text-neutral-50 text-center backdrop-brightness-90 backdrop-blur-[0.5px] py-4 px-2">
-        Add adventure to your life by joining the #vanlife movement. Rent the
-        perfect van to make your perfect road trip.
-      </p>
-      <div className="mt-4">
-        <Link to="/vans">
-          <Button>Find your van</Button>
-        </Link>
+      <div>
+        <p className="text-neutral-50 py-4 px-7 backdrop-brightness-[0.4]">
+          Add adventure to your life by joining the #vanlife movement. Rent the
+          perfect van to make your perfect road trip.
+        </p>
+        <div className="mt-0">
+          <Link to="/vans">
+            <Button>Find your van</Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
