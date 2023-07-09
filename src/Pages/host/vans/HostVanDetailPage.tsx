@@ -11,7 +11,7 @@ function HostVanDetailPage() {
 
   return (
     <div className="flex flex-col gap-9">
-      <Link to={"/host/vans"}>
+      <Link to={".."} relative="path">
         <GoBack />
       </Link>
       <HostVanDetailCard
