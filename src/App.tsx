@@ -11,6 +11,7 @@ import HostVanImage from "./Pages/host/vans/HostVanImage";
 import HostVanInfo from "./Pages/host/vans/HostVanInfo";
 import HostVansPage from "./Pages/host/vans/HostVansPage";
 import VansPage from "./Pages/vans/VansPage";
+import HostReviewPage from "./Pages/host/reviews/HostReviewPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="photos" element={<HostVanImage />} />
           </Route>
           <Route path="income"></Route>
+          <Route path="reviews" element={<HostReviewPage />} />
         </Route>
       </Route>
     </Routes>

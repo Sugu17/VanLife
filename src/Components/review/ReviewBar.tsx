@@ -5,15 +5,24 @@ interface Props {
 
 function ReviewBar(props: Props) {
   return (
-    <div className="flex flex-row flex-nowrap items-center gap-6 text-neutral-600">
+    <div
+      className="text-neutral-600 gap-6"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 4fr 1fr",
+        alignItems: "center",
+      }}
+    >
       <span className="whitespace-nowrap">{props.stars} stars</span>
-      <div className="w-full">
+      <div className="rounded-xl overflow-hidden w-full bg-neutral-300 ">
         <div
-          className="h-2 bg-[#FF8C38] rounded-xl"
-          style={{ width: "100%" }}
+          className="h-2 bg-[#FF8C38] "
+          style={{ width: `${props.percentage}%` }}
         ></div>
       </div>
-      <span className="whitespace-nowrap">{props.percentage}%</span>
+      <span className="whitespace-nowrap justify-self-end">
+        {props.percentage}%
+      </span>
     </div>
   );
 }
