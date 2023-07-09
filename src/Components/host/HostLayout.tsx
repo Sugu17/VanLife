@@ -3,10 +3,10 @@ import NavLinks, { NavInfo } from "../NavLinks";
 
 function HostLayout() {
   const navLinks: NavInfo[] = [
-    { name: "DashBoard", to: "/host" },
-    { name: "Income", to: "/host/income" },
-    { name: "Vans", to: "/host/vans" },
-    { name: "Reviews", to: "/host/reviews" },
+    { name: "DashBoard", to: "." },
+    { name: "Income", to: "income" },
+    { name: "Vans", to: "vans" },
+    { name: "Reviews", to: "reviews" },
   ];
   return (
     <div className="flex flex-col gap-11 py-4 px-6 pb-14">
