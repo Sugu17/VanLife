@@ -11,28 +11,27 @@ import HostVanDetailPage from "./Pages/host/vans/HostVanDetailPage";
 import HostVanInfo from "./Pages/host/vans/HostVanInfo";
 import Price from "./Components/Price";
 import HostVanImage from "./Pages/host/vans/HostVanImage";
+import ReviewBar from "./Components/review/ReviewBar";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="vans" element={<VansPage />} />
-        <Route path="vans/:id" element={<VanDetailPage />} />
-        <Route path="host" element={<HostLayout />}>
-          <Route index element={<HostDashboard />} />
-          <Route path="vans" element={<HostVansPage />} />
-          <Route path="income"></Route>
-          <Route path="vans/:id" element={<HostVanDetailPage />}>
-            <Route index element={<HostVanInfo />} />
-            <Route path="pricing" element={<Price />} />
-            <Route path="photos" element={<HostVanImage />} />
-          </Route>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="about" element={<AboutPage />} />
+      <Route path="vans" element={<VansPage />} />
+      <Route path="vans/:id" element={<VanDetailPage />} />
+      <Route path="host" element={<HostLayout />}>
+        <Route index element={<HostDashboard />} />
+        <Route path="vans" element={<HostVansPage />} />
+        <Route path="income"></Route>
+        <Route path="vans/:id" element={<HostVanDetailPage />}>
+          <Route index element={<HostVanInfo />} />
+          <Route path="pricing" element={<Price />} />
+          <Route path="photos" element={<HostVanImage />} />
         </Route>
       </Route>
-    </Routes>
-  );
+    </Route>
+  </Routes>;
 }
 
 export default App;
