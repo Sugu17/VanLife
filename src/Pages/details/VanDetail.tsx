@@ -1,8 +1,6 @@
 import { VanData } from "../../data/data";
-import Button from "../../Components/buttons/Button";
-import CategoryButton, {
-  Variants,
-} from "../../Components/buttons/CategoryButton";
+import Button from "@components/buttons/Button";
+import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
 
 export default function VanDetail(props: VanData) {
   return (

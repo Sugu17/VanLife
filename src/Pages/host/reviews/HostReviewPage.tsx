@@ -1,5 +1,5 @@
 import { BsStarFill } from "react-icons/bs";
-import ReviewBar from "../../../Components/review/ReviewBar";
+import ReviewBar from "@components/review/ReviewBar";
 import ReviewCard from "./ReviewCard";
 
 function HostReviewPage() {

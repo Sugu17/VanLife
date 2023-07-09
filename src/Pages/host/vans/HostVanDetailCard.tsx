@@ -1,8 +1,6 @@
 import { Outlet } from "react-router-dom";
-import CategoryButton, {
-  Variants,
-} from "../../../Components/buttons/CategoryButton";
-import NavLinks, { NavInfo } from "../../../Components/NavLinks";
+import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
+import NavLinks, { NavInfo } from "@components/NavLinks";
 
 interface VanCardProps {
   name: string;

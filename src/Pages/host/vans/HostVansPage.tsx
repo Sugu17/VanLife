@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import useVanStore from "../../../hooks/useVanStore";
-import useVans from "../../../hooks/useVans";
+import useVanStore from "~/hooks/useVanStore";
+import useVans from "~/hooks/useVans";
 import VanMedia from "../home/VanMedia";
 
 function HostVansPage() {

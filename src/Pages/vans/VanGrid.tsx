@@ -1,4 +1,4 @@
-import { VanData } from "../../data/data";
+import { VanData } from "~/data/data";
 import VanCard from "./VanCard";
 
 interface Props {

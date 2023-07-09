@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
-import heroImage from "../../assets/images/image 53.png";
-import Button from "../../Components/buttons/Button";
+import heroImage from "@assets/images/home_bg.jpg";
+import Button from "@components/buttons/Button";
 
 function Hero() {
   return (
     <div
       style={{
-        background: `no-repeat center/cover url("${heroImage}") `,
+        background: `url("${heroImage}")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center 57%",
+        backgroundSize: "contain",
       }}
       className="flex flex-col justify-between gap-10 px-7 py-16 container"
     >
-      <h2 className="text-4xl font-extrabold text-neutral-50 ">
+      <h2 className="text-4xl font-extrabold text-[#FF8C38]">
         You got the travel plans, we got the travel vans.
       </h2>
-      <p className="text-neutral-50">
+      <p className="text-neutral-50 text-center backdrop-brightness-90 backdrop-blur-[0.5px] py-4 px-2">
         Add adventure to your life by joining the #vanlife movement. Rent the
         perfect van to make your perfect road trip.
       </p>

@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import GoBack from "../../../Components/GoBack";
-import { VanData } from "../../../data/data";
-import useVans, { getVanById } from "../../../hooks/useVans";
+import GoBack from "@components/GoBack";
+import { VanData } from "~/data/data";
+import useVans, { getVanById } from "~/hooks/useVans";
 import HostVanDetailCard from "./HostVanDetailCard";
 
 function HostVanDetailPage() {

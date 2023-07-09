@@ -1,8 +1,6 @@
 import { useState } from "react";
-import CategoryButton, {
-  Variants,
-} from "../../Components/buttons/CategoryButton";
-import useVans, { RouteParams } from "../../hooks/useVans";
+import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
+import useVans, { RouteParams } from "~/hooks/useVans";
 import VanGrid from "./VanGrid";
 
 function VansPage() {

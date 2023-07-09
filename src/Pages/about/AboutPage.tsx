@@ -1,5 +1,5 @@
-import Callout from "../../Components/Callout";
-import aboutImage from "../../assets/images/image 54.png";
+import Callout from "@components/Callout";
+import aboutImage from "@assets/images/image 54.png";
 
 function AboutPage() {
   return (

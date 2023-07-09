@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import CategoryButton, {
-  Variants,
-} from "../../Components/buttons/CategoryButton";
+import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
 
 interface Props {
   id: number;

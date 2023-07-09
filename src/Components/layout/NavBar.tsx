@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavLinks, { NavInfo } from "../NavLinks";
 
 function Logo() {
@@ -14,7 +15,9 @@ function NavBar() {
   ];
   return (
     <div className="flex justify-between items-center px-6 py-9">
-      <Logo />
+      <Link to={"/"}>
+        <Logo />
+      </Link>
       <NavLinks info={navItems} textSize="sm" />
     </div>
   );

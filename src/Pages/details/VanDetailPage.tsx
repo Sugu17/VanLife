@@ -1,9 +1,8 @@
-import { BsArrowLeft } from "react-icons/bs";
+import GoBack from "@components/GoBack";
 import { Link, useParams } from "react-router-dom";
+import { VanData } from "~/data/data";
+import useVans, { getVanById } from "~/hooks/useVans";
 import VanDetail from "./VanDetail";
-import { VanData } from "../../data/data";
-import useVans, { getVanById } from "../../hooks/useVans";
-import GoBack from "../../Components/GoBack";
 
 function VanDetailPage() {
   const params = useParams();
