@@ -11,17 +11,17 @@ function Hero() {
         backgroundPosition: "center center",
         backgroundSize: "cover",
       }}
-      className="flex flex-col justify-between py-10 container"
+      className="flex flex-col justify-between pt-0  container"
     >
-      <h2 className="text-4xl font-extrabold text-[#f36703] py-6 px-7 backdrop-blur-md">
+      <h2 className="text-4xl font-extrabold text-[#f36703] py-12 px-7 backdrop-blur-md">
         You got the travel plans, we got the travel vans.
       </h2>
       <div>
-        <p className="text-neutral-50 py-4 px-7 backdrop-brightness-[0.4]">
+        <p className="text-neutral-50 py-4 px-7 backdrop-brightness-50">
           Add adventure to your life by joining the #vanlife movement. Rent the
           perfect van to make your perfect road trip.
         </p>
-        <div className="mt-0">
+        <div className="mt-0 pb-4 px-4">
           <Link to="/vans">
             <Button>Find your van</Button>
           </Link>
