@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import heroImageLg from "@assets/images/home_bg.webp";
 import heroImageSm from "@assets/images/home-bg-sm.webp";
 import Button from "@components/buttons/Button";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
