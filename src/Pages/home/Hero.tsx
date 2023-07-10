@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import heroImage from "@assets/images/home_bg.webp";
+import heroImageLg from "@assets/images/home_bg.webp";
+import heroImageSm from "@assets/images/home-bg-sm.webp";
 import Button from "@components/buttons/Button";
 
 function Hero() {
   return (
     <div
       style={{
-        background: `url("${heroImage}")`,
+        backgroundImage: `url("${heroImageSm}")`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",
