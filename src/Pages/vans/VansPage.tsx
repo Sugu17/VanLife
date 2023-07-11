@@ -1,9 +1,9 @@
-import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
+import CategoryButton from "@components/buttons/CategoryButton";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { VanData } from "~/data/data";
 import useVans from "~/hooks/useVans";
 import VanGrid from "./VanGrid";
-import { VanData } from "~/data/data";
 
 interface VansQuery {
   type: string | null;
@@ -54,14 +54,16 @@ function VansPage() {
             Rugged
           </CategoryButton>
         </div>
-        <button
-          type="button"
-          className="text-neutral-600 underline capitalize whitespace-nowrap"
-          onClick={() => setSearchParams({})}
-        >
-          <span className="inline min-[400px]:hidden">Clear</span>
-          <span className="hidden min-[400px]:inline">Clear Filters</span>
-        </button>
+        {vansQuery.type && (
+          <button
+            type="button"
+            className="text-neutral-600 underline capitalize whitespace-nowrap"
+            onClick={() => setSearchParams({})}
+          >
+            <span className="inline min-[400px]:hidden">Clear</span>
+            <span className="hidden min-[400px]:inline">Clear Filters</span>
+          </button>
+        )}
       </div>
       <div className="mt-8">
         <VanGrid vans={vans} />
