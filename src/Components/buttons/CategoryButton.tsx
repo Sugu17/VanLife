@@ -6,8 +6,8 @@ export type Variants = "Default" | "Simple" | "Luxury" | "Rugged";
 interface Props {
   children: ReactNode;
   variant?: Variants;
-  unstyled?: boolean;
-  onClick?: (filterType: Variants) => void;
+  selected?: boolean;
+  onClick?: () => void;
 }
 
 type VariantMap = {
@@ -53,14 +53,14 @@ const baseStyleMap: VariantMap = {
 function CategoryButton({
   children,
   variant = "Default",
-  unstyled,
+  selected,
   onClick: handleClick,
 }: Props) {
   return (
     <button
       type="button"
-      className={unstyled ? baseStyleMap[variant] : variantMap[variant]}
-      onClick={() => (handleClick ? handleClick(variant) : null)}
+      className={selected ? variantMap[variant] : baseStyleMap[variant]}
+      onClick={() => (handleClick ? handleClick() : null)}
     >
       {children}
     </button>

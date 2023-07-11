@@ -35,6 +35,7 @@ function VanCard(props: Props) {
           variant={
             (props.type[0].toUpperCase() + props.type.slice(1)) as Variants
           }
+          selected
         >
           {props.type}
         </CategoryButton>

@@ -35,21 +35,21 @@ function VansPage() {
           <CategoryButton
             onClick={() => setSearchParams({ type: "simple" })}
             variant="Simple"
-            unstyled
+            selected={vansQuery.type === "simple"}
           >
             Simple
           </CategoryButton>
           <CategoryButton
             onClick={() => setSearchParams({ type: "luxury" })}
             variant="Luxury"
-            unstyled
+            selected={vansQuery.type === "luxury"}
           >
             Luxury
           </CategoryButton>
           <CategoryButton
             onClick={() => setSearchParams({ type: "rugged" })}
             variant="Rugged"
-            unstyled
+            selected={vansQuery.type === "rugged"}
           >
             Rugged
           </CategoryButton>
