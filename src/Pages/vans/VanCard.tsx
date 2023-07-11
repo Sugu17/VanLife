@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
+import { useContext } from "react";
+import { FilterParamsContext } from "~/contexts/FilterParamsContext";
 
 interface Props {
   id: number;
@@ -10,8 +12,10 @@ interface Props {
 }
 
 function VanCard(props: Props) {
+  // Access card type filter used in VansPage via React Context
+  const filterParams = useContext(FilterParamsContext);
   return (
-    <Link to={`/vans/${props.id}`}>
+    <Link to={`/vans/${props.id}`} state={filterParams}>
       <div className="flex flex-col gap-0">
         <div className="aspect-square w-full">
           <img

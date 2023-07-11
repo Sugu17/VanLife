@@ -4,19 +4,20 @@ import { useSearchParams } from "react-router-dom";
 import { VanData } from "~/data/data";
 import useVans from "~/hooks/useVans";
 import VanGrid from "./VanGrid";
+import { FilterParamsContext } from "~/contexts/FilterParamsContext";
 
 interface VansQuery {
-  type: string | null;
+  type: string;
 }
 
 function VansPage() {
   const [searchParams, setSearchParams] = useSearchParams({});
-  const [vansQuery, setVansQuery] = useState<VansQuery>({ type: null });
+  const [vansQuery, setVansQuery] = useState<VansQuery>({ type: "" });
   const { data } = useVans();
   const [vans, setVans] = useState<VanData[] | undefined>(data as VanData[]);
 
   useEffect(() => {
-    setVansQuery({ type: searchParams.get("type") });
+    setVansQuery({ type: searchParams.get("type") ?? "" });
   }, [searchParams]);
 
   useEffect(() => {
@@ -66,7 +67,9 @@ function VansPage() {
         )}
       </div>
       <div className="mt-8">
-        <VanGrid vans={vans} />
+        <FilterParamsContext.Provider value={vansQuery.type}>
+          <VanGrid vans={vans} />
+        </FilterParamsContext.Provider>
       </div>
     </div>
   );
