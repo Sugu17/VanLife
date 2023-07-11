@@ -9,7 +9,6 @@ function VanDetailPage() {
   useVans({ id: params.id });
 
   const location = useLocation();
-  console.log(location);
 
   const goBackURL = location.state ? `../?type=${location.state}` : "../";
 
