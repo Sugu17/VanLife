@@ -9,6 +9,7 @@ export default function VanDetail(props: VanData) {
         variant={
           (props.type.charAt(0).toUpperCase() + props.type.slice(1)) as Variants
         }
+        selected
       >
         {props?.type}
       </CategoryButton>
