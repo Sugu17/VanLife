@@ -13,6 +13,7 @@ import HostVansPage from "./Pages/host/vans/HostVansPage";
 import VansPage from "./Pages/vans/VansPage";
 import HostReviewPage from "./Pages/host/reviews/HostReviewPage";
 import HostIncomePage from "./Pages/income/HostIncomePage";
+import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="income" element={<HostIncomePage />} />
           <Route path="reviews" element={<HostReviewPage />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
   );
