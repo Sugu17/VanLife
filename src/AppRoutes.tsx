@@ -22,6 +22,7 @@ import VansPage from "./Pages/vans/VansPage";
 import vansLoader from "./loaders/vansLoader";
 import { useContext } from "react";
 import { QueryClientContext } from "./main";
+import FetchError from "./Components/FetchError";
 
 function AppRoutes() {
   const queryClient = useContext(QueryClientContext);
@@ -34,6 +35,7 @@ function AppRoutes() {
           path="vans"
           element={<VansPage />}
           loader={() => vansLoader(queryClient)}
+          errorElement={<FetchError />}
         />
         <Route path="vans/:id" element={<VanDetailPage />} />
         <Route path="host" element={<HostLayout />}>
