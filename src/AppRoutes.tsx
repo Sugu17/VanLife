@@ -1,5 +1,6 @@
 import {
   Route,
+  RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
@@ -18,28 +19,38 @@ import HostVanInfo from "./Pages/host/vans/HostVanInfo";
 import HostVansPage from "./Pages/host/vans/HostVansPage";
 import HostIncomePage from "./Pages/income/HostIncomePage";
 import VansPage from "./Pages/vans/VansPage";
+import vansLoader from "./loaders/vansLoader";
+import { useContext } from "react";
+import { QueryClientContext } from "./main";
 
-const appRouter = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route index element={<HomePage />} />
-      <Route path="about" element={<AboutPage />} />
-      <Route path="vans" element={<VansPage />} />
-      <Route path="vans/:id" element={<VanDetailPage />} />
-      <Route path="host" element={<HostLayout />}>
-        <Route index element={<HostDashboard />} />
-        <Route path="vans" element={<HostVansPage />} />
-        <Route path="vans/:id" element={<HostVanDetailPage />}>
-          <Route index element={<HostVanInfo />} />
-          <Route path="pricing" element={<Price />} />
-          <Route path="photos" element={<HostVanImage />} />
+function AppRoutes() {
+  const queryClient = useContext(QueryClientContext);
+  const appRouter = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route
+          path="vans"
+          element={<VansPage />}
+          loader={() => vansLoader(queryClient)}
+        />
+        <Route path="vans/:id" element={<VanDetailPage />} />
+        <Route path="host" element={<HostLayout />}>
+          <Route index element={<HostDashboard />} />
+          <Route path="vans" element={<HostVansPage />} />
+          <Route path="vans/:id" element={<HostVanDetailPage />}>
+            <Route index element={<HostVanInfo />} />
+            <Route path="pricing" element={<Price />} />
+            <Route path="photos" element={<HostVanImage />} />
+          </Route>
+          <Route path="income" element={<HostIncomePage />} />
+          <Route path="reviews" element={<HostReviewPage />} />
         </Route>
-        <Route path="income" element={<HostIncomePage />} />
-        <Route path="reviews" element={<HostReviewPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
-      <Route path="*" element={<PageNotFound />} />
-    </Route>
-  )
-);
-
-export default appRouter;
+    )
+  );
+  return <RouterProvider router={appRouter} />;
+}
+export default AppRoutes;

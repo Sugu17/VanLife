@@ -1,10 +1,10 @@
 import CategoryButton from "@components/buttons/CategoryButton";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { FilterParamsContext } from "~/contexts/FilterParamsContext";
 import { VanData } from "~/data/data";
 import useVans from "~/hooks/useVans";
 import VanGrid from "./VanGrid";
-import { FilterParamsContext } from "~/contexts/FilterParamsContext";
 
 interface VansQuery {
   type: string;

@@ -8,6 +8,10 @@ export interface RouteParams {
   type?: string;
 }
 
+export function getAllVans(): Promise<VanData[]> {
+  return new Promise((resolve) => resolve(data));
+}
+
 export default function useVans(routeParams?: RouteParams) {
   const vansQuery = useQuery({
     queryFn: (): Promise<VanData[]> =>
@@ -17,7 +21,7 @@ export default function useVans(routeParams?: RouteParams) {
           )
         : new Promise((resolve) => resolve(data)),
     queryKey: routeParams ? ["vans", routeParams] : ["vans"],
-    staleTime: 60 * 60 * 1000,
+    staleTime: Infinity,
   });
   const setVans = useVanStore((state) => state.setVans);
   useEffect(() => setVans(vansQuery.data), [vansQuery]);
