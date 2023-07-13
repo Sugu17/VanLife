@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import useVanStore from "~/hooks/useVanStore";
 import useVans from "~/hooks/useVans";
 import VanMedia from "../home/VanMedia";
 
 function HostVansPage() {
-  useVans();
-  const vans = useVanStore((state) => state.vans);
+  const { data: vans } = useVans();
   const listedVans = vans?.map((van, index) => (
     <Link to={`/host/vans/${van.id}`} key={index}>
       <VanMedia name={van.name} imgURL={van.imageUrl} price={van.price} />

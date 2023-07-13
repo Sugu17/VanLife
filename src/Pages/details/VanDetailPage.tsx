@@ -1,6 +1,5 @@
 import GoBack from "@components/GoBack";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { VanData } from "~/data/data";
 import useVans from "~/hooks/useVans";
 import VanDetail from "./VanDetail";
 
@@ -8,8 +7,6 @@ export function VanDetailPage() {
   const params = useParams();
   const { data: queryData } = useVans({ id: params.id });
   const data = queryData ? queryData[0] : null;
-  console.log(data);
-
   const location = useLocation();
   const goBackURL = location.state ? `../?type=${location.state}` : "../";
 

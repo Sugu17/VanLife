@@ -5,7 +5,7 @@ import VanMedia from "./VanMedia";
 
 function HostDashboard() {
   useVans();
-  const vans = useVanStore((state) => state.vans);
+  const { data: vans } = useVans();
   const listedVans = vans?.map((van, index) => (
     <VanMedia
       key={index}
