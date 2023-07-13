@@ -11,7 +11,7 @@ function ReviewCard(props: Props) {
   const reviewStars = [];
   for (let i = 0; i < props.stars; ++i) {
     reviewStars.push(
-      <span className="text-[#FF8C38] text-lg">
+      <span key={i} className="text-[#FF8C38] text-lg">
         <BsStarFill />
       </span>
     );
