@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NavLinks, { NavInfo } from "../NavLinks";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 function Logo() {
   return (
@@ -14,11 +15,16 @@ function NavBar() {
     { to: "vans", name: "Vans" },
   ];
   return (
-    <div className="flex justify-between items-center px-6 py-9">
+    <div className="flex justify-between items-center px-3 sm:px-6  py-9">
       <Link to={"/"}>
         <Logo />
       </Link>
-      <NavLinks info={navItems} textSize="sm" />
+      <div className="flex flex-nowrap gap-5 items-center">
+        <NavLinks info={navItems} textSize="sm" />
+        <span className="text-2xl">
+          <FaRegCircleUser />
+        </span>
+      </div>
     </div>
   );
 }
