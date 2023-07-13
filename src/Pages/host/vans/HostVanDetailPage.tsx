@@ -1,25 +1,23 @@
-import { Link, useParams } from "react-router-dom";
 import GoBack from "@components/GoBack";
-import { VanData } from "~/data/data";
-import useVans, { getVanById } from "~/hooks/useVans";
+import { Link, useParams } from "react-router-dom";
+import useVans from "~/hooks/useVans";
 import HostVanDetailCard from "./HostVanDetailCard";
 
 function HostVanDetailPage() {
   const params = useParams();
-  useVans({ id: params.id });
-  const van = getVanById(params.id) as VanData;
-
+  const { data } = useVans({ id: params.id });
+  const van = data ? data[0] : null;
   return (
     <div className="flex flex-col gap-9">
       <Link to={".."} relative="path">
         <GoBack />
       </Link>
       <HostVanDetailCard
-        imgURL={van.imageUrl}
-        name={van.name}
-        price={van.price}
-        type={van.type}
-        desc={van.description}
+        imgURL={van?.imageUrl}
+        name={van?.name}
+        price={van?.price}
+        type={van?.type ?? ""}
+        desc={van?.description}
       />
     </div>
   );

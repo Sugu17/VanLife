@@ -3,8 +3,8 @@ import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
 import NavLinks, { NavInfo } from "@components/NavLinks";
 
 interface VanCardProps {
-  name: string;
-  price: number;
+  name?: string;
+  price?: number;
   type: string;
 }
 
@@ -30,11 +30,11 @@ function VanCardDetail({ name, price, type }: VanCardProps) {
 }
 
 interface Props {
-  name: string;
-  price: number;
+  name?: string;
+  price?: number;
   type: string;
-  imgURL: string;
-  desc: string;
+  imgURL?: string;
+  desc?: string;
 }
 
 function HostVanDetailCard({ imgURL, name, price, type, desc }: Props) {
