@@ -1,4 +1,3 @@
-import useVanStore from "~/hooks/useVanStore";
 import useVans from "~/hooks/useVans";
 import Summary from "./Summary";
 import VanMedia from "./VanMedia";

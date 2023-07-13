@@ -10,7 +10,9 @@ export default async function vansDetailsLoader(
     queryKey: ["vans", { id: id }],
     queryFn: async () => {
       await getVanById(id);
+      return "Prefetched";
     },
     staleTime: Infinity,
   });
+  return "Prefetched vanDetails";
 }
