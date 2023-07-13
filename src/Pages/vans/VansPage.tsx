@@ -13,6 +13,7 @@ interface VansQuery {
 function VansPage() {
   const [searchParams, setSearchParams] = useSearchParams({});
   const [vansQuery, setVansQuery] = useState<VansQuery>({ type: "" });
+  // Data is prefetched in the AppRoutes
   const { data } = useVans();
   const [vans, setVans] = useState<VanData[] | undefined>(data as VanData[]);
 

@@ -3,6 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
+  useParams,
 } from "react-router-dom";
 import Price from "./Components/Price";
 import HostLayout from "./Components/host/HostLayout";
@@ -24,9 +25,11 @@ import { useContext } from "react";
 import { QueryClientContext } from "./main";
 import FetchError from "./Components/FetchError";
 import LoginPage from "./Pages/LoginPage";
+import vansDetailsLoader from "./loaders/vanDetailsLoader";
 
 function AppRoutes() {
   const queryClient = useContext(QueryClientContext);
+  const dynamicParams = useParams();
   const appRouter = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
@@ -43,7 +46,11 @@ function AppRoutes() {
         <Route path="host" element={<HostLayout />}>
           <Route index element={<HostDashboard />} />
           <Route path="vans" element={<HostVansPage />} />
-          <Route path="vans/:id" element={<HostVanDetailPage />}>
+          <Route
+            path="vans/:id"
+            element={<HostVanDetailPage />}
+            loader={() => vansDetailsLoader(queryClient, dynamicParams.id)}
+          >
             <Route index element={<HostVanInfo />} />
             <Route path="pricing" element={<Price />} />
             <Route path="photos" element={<HostVanImage />} />

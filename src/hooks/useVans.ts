@@ -1,33 +1,32 @@
 import { useQuery } from "@tanstack/react-query";
-import { VanData, data } from "../data/data";
-import useVanStore from "./useVanStore";
-import { useEffect } from "react";
+import { data } from "../data/data";
 
 export interface RouteParams {
   id?: string;
   type?: string;
 }
 
-export function getAllVans(): Promise<VanData[]> {
-  return new Promise((resolve) => resolve(data));
+export async function getVans() {
+  return data;
+}
+
+export async function getVanById(id?: string) {
+  return data.filter((van) => van.id === id);
 }
 
 export default function useVans(routeParams?: RouteParams) {
   const vansQuery = useQuery({
-    queryFn: (): Promise<VanData[]> =>
-      routeParams
-        ? new Promise((resolve) =>
-            resolve(data.filter((van) => van.type === routeParams.type))
-          )
-        : new Promise((resolve) => resolve(data)),
     queryKey: routeParams ? ["vans", routeParams] : ["vans"],
+    queryFn: async () => {
+      if (routeParams?.id) {
+        const van = await getVanById(routeParams.id);
+        return van;
+      } else {
+        const vans = await getVans();
+        return vans;
+      }
+    },
     staleTime: Infinity,
   });
-  const setVans = useVanStore((state) => state.setVans);
-  useEffect(() => setVans(vansQuery.data), [vansQuery]);
   return vansQuery;
-}
-
-export function getVanById(id: string | undefined): VanData | null {
-  return data.find((data) => data.id === id) ?? null;
 }

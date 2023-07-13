@@ -1,8 +1,14 @@
-import { VanData } from "../../data/data";
 import Button from "@components/buttons/Button";
 import CategoryButton, { Variants } from "@components/buttons/CategoryButton";
 
-export default function VanDetail(props: VanData) {
+interface Props {
+  name?: string;
+  price?: number;
+  type: string;
+  description?: string;
+}
+
+export default function VanDetail(props: Props) {
   return (
     <div className="flex flex-col gap-3">
       <CategoryButton

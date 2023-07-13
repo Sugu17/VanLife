@@ -1,12 +1,11 @@
 import { QueryClient } from "@tanstack/react-query";
-import { getAllVans } from "~/hooks/useVans";
+import { getVans } from "~/hooks/useVans";
 
 export default async function vansLoader(queryClient: QueryClient) {
   // throw new Error("Failed to fetch data");
-  return await queryClient
-    .prefetchQuery({
-      queryKey: ["vans"],
-      queryFn: getAllVans,
-    })
-    .then(() => "Prefetched vans");
+  queryClient.prefetchQuery({
+    queryKey: ["vans"],
+    queryFn: async () => await getVans(),
+  });
+  return "Prefetched vans";
 }
