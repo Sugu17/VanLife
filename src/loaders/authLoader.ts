@@ -1,6 +1,9 @@
-import { defer } from "react-router-dom";
-import { getUserData } from "~/utils/getUserData";
+import { redirect } from "react-router-dom";
+import { getUserData } from "~/utils/getUserData.ts";
 
-export default function authLoader() {
-  return defer({ userPromise: getUserData() });
+export default async function authLoader() {
+  const user = await getUserData();
+  console.log(user);
+  if (user) return redirect("/login");
+  else return null;
 }
