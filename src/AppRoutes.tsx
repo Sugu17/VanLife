@@ -27,6 +27,7 @@ import FetchError from "./Components/FetchError";
 import LoginPage from "./Pages/LoginPage";
 import vansDetailsLoader from "./loaders/vanDetailsLoader";
 import authLoader from "./loaders/authLoader";
+import { loginLoader } from "./loaders/loginLoader";
 
 function AppRoutes() {
   const queryClient = useContext(QueryClientContext);
@@ -42,7 +43,15 @@ function AppRoutes() {
           loader={() => vansLoader(queryClient)}
           errorElement={<FetchError />}
         />
-        <Route path="login" element={<LoginPage />} />
+        <Route
+          path="login"
+          element={<LoginPage />}
+          loader={(routerData: {
+            request: Request;
+            params: object;
+            context?: object;
+          }) => loginLoader(routerData)}
+        />
         <Route path="vans/:id" element={<VanDetailPage />} />
         <Route path="host" element={<HostLayout />} loader={() => authLoader()}>
           <Route index element={<HostDashboard />} />
