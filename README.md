@@ -23,3 +23,5 @@ https://vanzlife.netlify.app/
 - [ ] Add private routes to host/\*
 
 - [ ] Connect to an actual API - _Backend to be implemented_
+
+- [ ] Loading skeletons when loader is getting user data for protected routes (host/\*)
