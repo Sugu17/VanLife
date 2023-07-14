@@ -25,3 +25,5 @@ https://vanzlife.netlify.app/
 - [ ] Connect to an actual API - _Backend to be implemented_
 
 - [ ] Loading skeletons when loader is getting user data for protected routes (host/\*)
+
+- [ ] Deliver images assets responsively(_Currently only good enough for mobiles_)
