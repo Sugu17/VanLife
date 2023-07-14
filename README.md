@@ -20,6 +20,6 @@ https://vanzlife.netlify.app/
 
 ## To-Do
 
-[] Add private routes to host/\*
+- [ ] Add private routes to host/\*
 
-[] Connect to an actual API--Backend to be implemented
+- [ ] Connect to an actual API - _Backend to be implemented_
