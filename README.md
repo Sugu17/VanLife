@@ -1,4 +1,3 @@
-
 # VanLife
 
 A mobile friendly web application for renting vans.
@@ -7,12 +6,9 @@ A mobile friendly web application for renting vans.
 
 **Client:** React, Tailwind CSS, Zustand, React Query, React Router v6, Chart.js
 
-
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
 
 ## Demo
 
@@ -22,3 +18,8 @@ https://vanzlife.netlify.app/
 
 [Documentation](https://linktodocumentation)
 
+## To-Do
+
+[] Add private routes to host/\*
+
+[] Connect to an actual API--Backend to be implemented
