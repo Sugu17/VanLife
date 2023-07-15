@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 import Button from "~/Components/buttons/Button";
 
 function LoginPage() {
@@ -10,7 +10,7 @@ function LoginPage() {
       <h2 className="text-3xl font-bold text-neutral-900">
         {promptMessage ? promptMessage : "Sign in to your account"}
       </h2>
-      <form className="flex flex-col gap-7 w-full">
+      <Form className="flex flex-col gap-7 w-full">
         {/* Input group */}
         <div className="flex flex-col border-[1.5px] border-[#D1D5DB] rounded-md overflow-hidden shadow-sm">
           {/* Text Input */}
@@ -31,7 +31,7 @@ function LoginPage() {
           />
         </div>
         <Button>Sign in</Button>
-      </form>
+      </Form>
       <span className="text-neutral-900">
         Don't have an account?{" "}
         <span className="text-[#FF8C38] font-bold">Create one now</span>
