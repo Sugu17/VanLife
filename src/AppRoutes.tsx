@@ -20,14 +20,14 @@ import HostVanInfo from "./Pages/host/vans/HostVanInfo";
 import HostVansPage from "./Pages/host/vans/HostVansPage";
 import HostIncomePage from "./Pages/income/HostIncomePage";
 import VansPage from "./Pages/vans/VansPage";
-import vansLoader from "./loaders/vansLoader";
+import vansLoader from "./router/loaders/vansLoader";
 import { useContext } from "react";
 import { QueryClientContext } from "./main";
 import FetchError from "./Components/FetchError";
 import LoginPage from "./Pages/LoginPage";
-import vansDetailsLoader from "./loaders/vanDetailsLoader";
-import authLoader from "./loaders/authLoader";
-import { loginLoader } from "./loaders/loginLoader";
+import vansDetailsLoader from "./router/loaders/vanDetailsLoader";
+import authLoader from "./router/loaders/authLoader";
+import { loginLoader } from "./router/loaders/loginLoader";
 
 function AppRoutes() {
   const queryClient = useContext(QueryClientContext);
