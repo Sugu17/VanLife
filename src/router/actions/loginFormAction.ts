@@ -3,7 +3,8 @@ interface FormActionArgs {
   request: Request;
 }
 
-export default async function loginFormAction(actionArgs: FormActionArgs) {
-  console.log("Form submited ");
-  return null;
+export default async function loginFormAction({ request }: FormActionArgs) {
+  const formData = await request.formData();
+  console.log(formData);
+  return "Response sent";
 }
