@@ -58,7 +58,10 @@ function AppRoutes() {
         <Route
           path="host"
           element={<HostLayout />}
-          loader={() => requireAuth()}
+          loader={() => {
+            requireAuth();
+            return null;
+          }}
         >
           <Route index element={<HostDashboard />} />
           <Route path="vans" element={<HostVansPage />} />
