@@ -21,9 +21,11 @@ function NavBar() {
       </Link>
       <div className="flex flex-nowrap gap-5 items-center">
         <NavLinks info={navItems} textSize="sm" />
-        <span className="text-2xl">
-          <FaRegCircleUser />
-        </span>
+        <Link to={"/login"}>
+          <span className="text-2xl">
+            <FaRegCircleUser />
+          </span>
+        </Link>
       </div>
     </div>
   );

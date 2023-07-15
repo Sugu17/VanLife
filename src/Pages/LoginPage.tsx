@@ -1,7 +1,9 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, useLoaderData, useNavigation } from "react-router-dom";
 
 function LoginPage() {
   const promptMessage = useLoaderData() as string;
+  const { state } = useNavigation();
+
   return (
     <div className="flex flex-col px-3 sm:px-6 py-4 pb-20 gap-8 items-center">
       {/* Conditionaly render prompt message using requireAuth */}
@@ -33,11 +35,13 @@ function LoginPage() {
         </div>
         <button
           type="submit"
-          className="w-full font-bold text-center bg-[#FF8C38] p-3 rounded-md text-neutral-50"
+          disabled={state === "submitting"}
+          className="disabled:opacity-95 disabled:border-2 disabled:border-neutral-300   w-full font-bold text-center bg-[#FF8C38] p-3 rounded-md text-neutral-50"
         >
-          Sign in
+          {state === "submitting" ? "Submitting..." : "Sign in"}
         </button>
       </Form>
+      {/* No account prompt */}
       <span className="text-neutral-900">
         Don't have an account?{" "}
         <span className="text-[#FF8C38] font-bold">Create one now</span>

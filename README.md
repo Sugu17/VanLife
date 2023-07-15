@@ -27,3 +27,5 @@ https://vanzlife.netlify.app/
 - [ ] Loading skeletons when loader is getting user data for protected routes (host/\*)
 
 - [ ] Deliver images assets responsively(_Currently only good enough for mobiles_)
+
+- [ ] Form validation for the input page
