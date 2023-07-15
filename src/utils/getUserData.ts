@@ -1,6 +1,4 @@
 export async function getUserData() {
-  const user = await new Promise((resolve) => {
-    setTimeout(() => resolve("User from API"), 100);
-  });
+  const user = localStorage.getItem("user");
   return user;
 }
