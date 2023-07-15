@@ -28,6 +28,7 @@ import LoginPage from "./Pages/LoginPage";
 import vansDetailsLoader from "./router/loaders/vanDetailsLoader";
 import authLoader from "./router/loaders/authLoader";
 import { loginLoader } from "./router/loaders/loginLoader";
+import loginFormAction from "./router/actions/loginFormAction";
 
 function AppRoutes() {
   const queryClient = useContext(QueryClientContext);
@@ -51,6 +52,7 @@ function AppRoutes() {
             params: object;
             context?: object;
           }) => loginLoader(routerData)}
+          action={loginFormAction}
         />
         <Route path="vans/:id" element={<VanDetailPage />} />
         <Route path="host" element={<HostLayout />} loader={() => authLoader()}>

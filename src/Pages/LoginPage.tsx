@@ -10,7 +10,7 @@ function LoginPage() {
       <h2 className="text-3xl font-bold text-neutral-900">
         {promptMessage ? promptMessage : "Sign in to your account"}
       </h2>
-      <Form className="flex flex-col gap-7 w-full">
+      <Form method="post" className="flex flex-col gap-7 w-full">
         {/* Input group */}
         <div className="flex flex-col border-[1.5px] border-[#D1D5DB] rounded-md overflow-hidden shadow-sm">
           {/* Text Input */}
