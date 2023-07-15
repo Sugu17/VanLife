@@ -26,7 +26,7 @@ import { QueryClientContext } from "./main";
 import FetchError from "./Components/FetchError";
 import LoginPage from "./Pages/LoginPage";
 import vansDetailsLoader from "./router/loaders/vanDetailsLoader";
-import authLoader from "./router/loaders/authLoader";
+import requireAuth from "./utils/requireAuth";
 import { loginLoader } from "./router/loaders/loginLoader";
 import loginFormAction from "./router/actions/loginFormAction";
 
@@ -55,7 +55,11 @@ function AppRoutes() {
           action={loginFormAction}
         />
         <Route path="vans/:id" element={<VanDetailPage />} />
-        <Route path="host" element={<HostLayout />} loader={() => authLoader()}>
+        <Route
+          path="host"
+          element={<HostLayout />}
+          loader={() => requireAuth()}
+        >
           <Route index element={<HostDashboard />} />
           <Route path="vans" element={<HostVansPage />} />
           <Route

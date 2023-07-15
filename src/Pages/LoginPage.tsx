@@ -1,11 +1,10 @@
 import { Form, useLoaderData } from "react-router-dom";
-import Button from "~/Components/buttons/Button";
 
 function LoginPage() {
   const promptMessage = useLoaderData() as string;
   return (
     <div className="flex flex-col px-3 sm:px-6 py-4 pb-20 gap-8 items-center">
-      {/* Conditionaly render prompt message from authLoader */}
+      {/* Conditionaly render prompt message using requireAuth */}
 
       <h2 className="text-3xl font-bold text-neutral-900">
         {promptMessage ? promptMessage : "Sign in to your account"}
