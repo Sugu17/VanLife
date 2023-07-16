@@ -18,14 +18,16 @@ https://vanzlife.netlify.app/
 
 [Documentation](https://linktodocumentation)
 
-## To-Do
+## To-Dos
 
 - [ ] Add private routes to host/\*
 
-- [ ] Connect to an actual API - _Backend to be implemented_
+- [ ] ~~Connect to an actual API - _Backend to be implemented_~~
 
 - [ ] Loading skeletons when loader is getting user data for protected routes (host/\*)
 
 - [ ] Deliver images assets responsively(_Currently only good enough for mobiles_)
 
 - [ ] Form validation for the input page
+
+- [ ] Connect to a firebase db for persisting data
