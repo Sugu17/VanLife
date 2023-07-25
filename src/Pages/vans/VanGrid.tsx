@@ -2,7 +2,7 @@ import { VanData } from "~/data/data";
 import VanCard from "./VanCard";
 
 interface Props {
-  vans: VanData[] | undefined;
+  vans?: VanData[] | undefined;
 }
 
 function VanGrid({ vans }: Props) {

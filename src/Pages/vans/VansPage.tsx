@@ -1,32 +1,26 @@
 import CategoryButton from "@components/buttons/CategoryButton";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Suspense, useEffect, useState } from "react";
+import {
+  Await,
+  useAsyncValue,
+  useLoaderData,
+  useSearchParams,
+} from "react-router-dom";
+import SkeletonGrid from "~/Components/SkeletonGrid";
 import { FilterParamsContext } from "~/contexts/FilterParamsContext";
 import { VanData } from "~/data/data";
-import useVans from "~/hooks/useVans";
 import VanGrid from "./VanGrid";
-
-interface VansQuery {
-  type: string;
-}
 
 function VansPage() {
   const [searchParams, setSearchParams] = useSearchParams({});
-  const [vansQuery, setVansQuery] = useState<VansQuery>({ type: "" });
-  // Data is prefetched in the AppRoutes
-  const { data } = useVans();
-  const [vans, setVans] = useState<VanData[] | undefined>(data as VanData[]);
+  const [selectedFilter, setSelectedFilter] = useState<string | null>();
 
   useEffect(() => {
-    setVansQuery({ type: searchParams.get("type") ?? "" });
+    setSelectedFilter(searchParams.get("type"));
   }, [searchParams]);
 
-  useEffect(() => {
-    if (vansQuery.type)
-      setVans(data?.filter((van) => van.type === vansQuery.type));
-    else setVans(data);
-  }, [data, vansQuery]);
-
+  // Use pre-loaded vans
+  const loaderData = useLoaderData() as { vans: Promise<VanData[]> };
   return (
     <div className="flex flex-col px-3 sm:px-6 py-4 pb-20 gap-4">
       <h2 className="text-[28px] font-bold text-neutral-950">
@@ -37,26 +31,27 @@ function VansPage() {
           <CategoryButton
             onClick={() => setSearchParams({ type: "simple" })}
             variant="Simple"
-            selected={vansQuery.type === "simple"}
+            selected={selectedFilter === "simple"}
           >
             Simple
           </CategoryButton>
           <CategoryButton
             onClick={() => setSearchParams({ type: "luxury" })}
             variant="Luxury"
-            selected={vansQuery.type === "luxury"}
+            selected={selectedFilter === "luxury"}
           >
             Luxury
           </CategoryButton>
           <CategoryButton
             onClick={() => setSearchParams({ type: "rugged" })}
             variant="Rugged"
-            selected={vansQuery.type === "rugged"}
+            selected={selectedFilter === "rugged"}
           >
             Rugged
           </CategoryButton>
         </div>
-        {vansQuery.type && (
+        {/* Clear filter button */}
+        {searchParams.get("type") && (
           <button
             type="button"
             className="text-neutral-600 underline capitalize whitespace-nowrap"
@@ -67,12 +62,35 @@ function VansPage() {
           </button>
         )}
       </div>
-      <div className="mt-8">
-        <FilterParamsContext.Provider value={vansQuery.type}>
-          <VanGrid vans={vans} />
-        </FilterParamsContext.Provider>
-      </div>
+      <Suspense fallback={<SkeletonGrid />}>
+        <Await resolve={loaderData.vans}>
+          <LazyLoadedVanGrid selectedType={selectedFilter} />
+        </Await>
+      </Suspense>
     </div>
   );
 }
 export default VansPage;
+
+interface Props {
+  selectedType: string | null | undefined;
+}
+
+function LazyLoadedVanGrid({ selectedType }: Props) {
+  const data = useAsyncValue() as VanData[];
+  const [vans, setVans] = useState<VanData[]>();
+
+  // Update the displayed vans whenever the typeQuery changes
+  useEffect(() => {
+    if (selectedType) setVans(data?.filter((van) => van.type === selectedType));
+    else setVans(data);
+  }, [selectedType, data]);
+
+  return (
+    <div className="mt-8">
+      <FilterParamsContext.Provider value={selectedType ?? ""}>
+        <VanGrid vans={vans} />
+      </FilterParamsContext.Provider>
+    </div>
+  );
+}

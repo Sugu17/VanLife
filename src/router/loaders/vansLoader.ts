@@ -1,21 +1,17 @@
 import { QueryClient } from "@tanstack/react-query";
 import { defer } from "react-router-dom";
-import { data } from "~/data/data";
 import { getVans } from "~/hooks/useVans";
 
 export default async function vansLoader(queryClient: QueryClient) {
-  // const dataPromise = queryClient.ensureQueryData({
-  //   queryKey: ["vans"],
-  //   queryFn: async () => {
-  //     const vans = await getVans();
-  //     return vans;
-  //   },
-  //   staleTime: Infinity,
-  // });
-
-  const dataPromise = new Promise((resolve) => {
-    setTimeout(() => resolve(data), 5000);
+  const dataPromise = queryClient.ensureQueryData({
+    queryKey: ["vans"],
+    queryFn: async () => {
+      const vans = await getVans();
+      return vans;
+    },
+    staleTime: Infinity,
   });
+
   return defer({ vans: dataPromise });
 }
 
